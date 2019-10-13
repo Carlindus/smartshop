@@ -1,0 +1,130 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+
+<!-- Author: David -->
+
+<tiles-definitions>
+
+	<!-- Connexion (USR_00) -->
+	<definition name="connexion" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/utilisateur/connexion.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Inscription (USR_01). -->
+	<definition name="inscription" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/utilisateur/inscription.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Modification client (USER_02). -->
+	<definition name="modifierUser" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/utilisateur/modifierUtilisateur.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Lister utilisateurs (USR_03). -->
+	<definition name="listerUser" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/utilisateur/lister.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Afficher infos utilisateurs (USR_04). -->
+	<definition name="DetailUser" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/utilisateur/detailUtilisateur.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Page d'accueil produit (PDT_00). -->
+	<definition name="listerProduitAccueil" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/produit/listeProduitAccueil.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+
+	<!-- Page détail produit (PDT_01). -->
+	<definition name="detailProduit" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/produit/detailProduit.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Administration des produits (PDT_02). -->
+	<definition name="listerProduitAdmin" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/produit/listeProduitAdmin.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Création produit (PDT_03). -->
+	<definition name="creerProduit" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/produit/creerProduit.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Modification produit (PDT_04). -->
+	<definition name="modifierProduit" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/panier/modifierProduit.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Gestion du panier (PAN_00). -->
+	<definition name="listerPanier" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/panier/voirPanier.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Validation du panier (PAN_01). -->
+	<definition name="validerPanier" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/panier/validerPanier.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Liste des commandes (CDE_00). -->
+	<definition name="listerCommande" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/commande/listeCommande.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Détail d'une commande (CDE_01). -->
+	<definition name="detailCommande" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/commande/detailCommande.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+	
+		<!-- Affichage CGU (). -->
+	<definition name="cgu" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/cgu/cgu.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+	
+</tiles-definitions>

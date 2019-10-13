@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- La connection -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/smart_shop</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password"></property>
+		<!-- AutoCommit -->
+		<!-- <property name="hibernate.connection.autocommit">true</property> -->
+
+		<!-- Configuration hibernate -->
+		<!-- Permet de voir les requêtes exécutées par hibernate -->
+		<property name="show_sql">false</property>
+		<!-- Permet de formatter les requêtes exécutées par hibernate -->
+		<property name="format_sql">true</property>
+
+		<!-- Liste des fichiers de Mapping hbm -->
+  		<mapping resource="hbm/LigneCommande.hbm.xml" />
+  		<mapping resource="hbm/Commande.hbm.xml" />
+	  	<mapping resource="hbm/Produit.hbm.xml" />
+  		<mapping resource="hbm/ProduitCommande.hbm.xml" />
+  		<mapping resource="hbm/Utilisateur.hbm.xml" />
+  		
+	
+	</session-factory>
+
+
+</hibernate-configuration>

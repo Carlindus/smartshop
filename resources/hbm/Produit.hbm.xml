@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Configuration DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+   
+<!-- Michelle -->
+
+<hibernate-mapping>
+
+   <class name="persistance.produit.bean.ProduitDo" table="produit">
+       <id name="idProduit" column="idProduit">
+           <generator class="identity"></generator>
+       </id>
+       <property name="reference" column="reference"></property>
+       <property name="description" column="description"></property>
+       <property name="prix" column="prix"></property>
+       <property name="image" column="image"></property>
+       <property name="etat" column="etat"></property>
+   </class>
+</hibernate-mapping>

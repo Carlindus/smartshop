@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC 
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="connexionForm"
+			type="presentation.utilisateur.form.ConnexionForm" />
+		<form-bean name="utilisateurForm"
+			type="presentation.utilisateur.form.UtilisateurForm" />
+		<form-bean name="produitForm"
+			type="presentation.produit.form.ProduitForm" />
+		<form-bean name="commandeForm"
+			type="presentation.commande.form.CommandeForm" />
+	</form-beans>
+
+	<action-mappings
+		type="org.apache.struts.action.ActionMapping">
+
+		<!-- Connexion (USR_00) -->
+		<action path="/voirConnexion" scope="request" input=""
+			parameter="" name=""
+			type="presentation.utilisateur.action.VoirConnexionAction">
+			<forward name="success" path="connexion" redirect="false" />
+		</action>
+
+		<action path="/connexion" scope="request" input="connexion"
+			parameter="" name="connexionForm"
+			type="presentation.utilisateur.action.ConnexionAction">
+			<forward name="success" path="/listerProduitAccueil.do"
+				redirect="false" />
+			<forward name="successAdmin" path="/listerProduitAdmin.do"
+				redirect="false" />
+			<forward name="fail" path="connexion" redirect="false" />
+			<forward name="failRedirect" path="/listerProduitAccueil.do"
+				redirect="false" />
+		</action>
+
+		<action path="/deconnexion" scope="request" input=""
+			parameter="" name=""
+			type="presentation.utilisateur.action.DeconnexionAction">
+			<forward name="success" path="/listerProduitAccueil.do"
+				redirect="true" />
+		</action>
+
+		<!-- Inscription (USR_01). -->
+		<action path="/voirInscription" scope="request" input=""
+			parameter="" name=""
+			type="presentation.utilisateur.action.VoirInscriptionAction">
+			<forward name="success" path="inscription" redirect="false" />
+		</action>
+
+		<action path="/inscription" scope="request" input=""
+			parameter="" name="utilisateurForm"
+			type="presentation.utilisateur.action.InscriptionAction">
+			<forward name="success" path="/voirConnexion.do"
+				redirect="false" />
+		</action>
+
+		<!-- Modification client (USR_02). -->
+		<action path="/voirModifierUtilisateur" scope="request" input=""
+			parameter="" name=""
+			type="presentation.utilisateur.action.VoirModifierUtilisateurAction">
+			<forward name="success" path="modifierUser" redirect="false" />
+		</action>
+
+		<action path="/modifierUtilisateur" scope="request" input="modifierUser" parameter=""
+			name="utilisateurForm" type="presentation.utilisateur.action.ModifierUtilisateurAction">
+			<forward name="success" path="/voirDetailUtilisateur.do"
+				redirect="false" />
+		</action>
+
+		<!-- Lister utilisateurs (USR_03). -->
+		<action path="/listerUtilisateur" scope="request" input=""
+			parameter=""
+			type="presentation.utilisateur.action.VoirListeUtilisateurAction">
+			<forward name="success" path="listerUser" redirect="false" />
+		</action>
+		<!-- Supprimer utilisateur (USR_03). -->
+		<action path="/supprimerUtilisateur" scope="request" input=""
+			parameter=""
+			type="presentation.utilisateur.action.SupprimerUtilisateurAction">
+			<forward name="success" path="/listerUtilisateur.do"
+				redirect="false" />
+			<forward name="deleteItselfSuccess"
+				path="/listerProduitAccueil.do" redirect="false" />
+		</action>
+
+		<!-- Afficher infos utilisateurs (USR_04). -->
+		<action path="/voirDetailUtilisateur" scope="request" input=""
+			parameter="" name=""
+			type="presentation.utilisateur.action.VoirDetailUtilisateurAction">
+			<forward name="success" path="DetailUser" redirect="false" />
+		</action>
+
+		<!-- Page d'accueil produit (PDT_00). -->
+		<action path="/listerProduitAccueil" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirListeProduitAccueilAction">
+			<forward name="success" path="listerProduitAccueil"
+				redirect="false" />
+		</action>
+
+		<!-- Page détail produit (PDT_01). -->
+		<action path="/voirDetailProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirDetailProduitAction">
+			<forward name="success" path="detailProduit" redirect="false"></forward>
+		</action>
+
+		<!-- Administration des produits (PDT_02). -->
+		<action path="/listerProduitAdmin" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirListeProduitAdminAction">
+			<forward name="success" path="listerProduitAdmin"
+				redirect="false"></forward>
+		</action>
+
+		<!-- Création produit (PDT_03). -->
+		<action path="/voirCreerProduit" scope="request" input=""
+			parameter="" name=""
+			type="presentation.produit.action.VoirCreerProduitAction">
+			<forward name="success" path="creerProduit" redirect="false" />
+		</action>
+
+		<action path="/creerProduit" scope="request"
+			input="creerProduit" parameter="" name="produitForm"
+			type="presentation.produit.action.CreerProduitAction">
+			<forward name="success" path="/listerProduitAdmin.do"
+				redirect="false" />
+		</action>
+
+		<!-- Modification produit (PDT_04). -->
+		<!-- Supprimer un produit -->
+		<action path="/supprimerProduit" scope="request" input=""
+			parameter="" name=""
+			type="presentation.produit.action.SupprimerProduitAction">
+			<forward name="success" path="/listerProduitAdmin.do"
+				redirect="false" />
+		</action>
+
+		<action path="/voirModifierProduit" scope="request" input=""
+			parameter="" name=""
+			type="presentation.produit.action.VoirModifierProduitAction">
+			<forward name="success" path="modifierProduit"
+				redirect="false"></forward>
+		</action>
+
+		<action path="/modifierProduit" scope="request"
+			input="modifierProduit" parameter="" name="produitForm"
+			type="presentation.produit.action.ModifierProduitAction">
+			<forward name="success" path="/listerProduitAdmin.do"
+				redirect="false"></forward>
+		</action>
+
+
+		<!-- Gestion du panier (PAN_00). -->
+		<action path="/ajouterProduitPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.AjouterProduitAction">
+			<forward name="successFromDetail"
+				path="/voirDetailProduit.do" redirect="false"></forward>
+			<forward name="successFromList"
+				path="/listerProduitAccueil.do" redirect="false"></forward>
+		</action>
+		<action path="/ajouterQttPanier" scope="request" input=""
+			parameter=""
+			type="presentation.panier.action.IncrementerPanierAction">
+			<forward name="success" path="/listerPanier.do" redirect="false" />
+		</action>
+		<action path="/retirerQttPanier" scope="request" input=""
+			parameter=""
+			type="presentation.panier.action.DecrementerPanierAction">
+			<forward name="success" path="/listerPanier.do" redirect="false" />
+		</action>
+		<action path="/supprimerLignePanier" scope="request" input=""
+			parameter=""
+			type="presentation.panier.action.SupprimerLignePanierAction">
+			<forward name="success" path="/listerPanier.do" redirect="false" />
+		</action>
+
+		<!-- Validation du panier (PAN_01). -->
+		<!-- A affecter dans groupe 3 -->
+		<action path="/validerPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.ValiderPanierAction">
+			<forward name="success" path="validerPanier" redirect="false" />
+			<forward name="error" path="/listerPanier.do" redirect="false" />
+		</action>
+		
+		<action path="/validerCommande" scope="request" input=""
+			parameter="" type="presentation.panier.action.ValiderCommandeAction">
+			<forward name="success" path="listerProduitAccueil" redirect="false" />
+			<forward name="error" path="/listerPanier.do" redirect="false" />
+		</action>
+
+		<!-- Liste des commandes (CDE_00). -->
+		<action path="/voirListeCommande" scope="request" input=""
+			parameter=""
+			type="presentation.commande.action.VoirListeCommandeAction">
+			<forward name="success" path="listerCommande"
+				redirect="false"></forward>
+		</action>
+		
+		
+
+		<!-- Lister Utilisateur -->
+		<action path="/listerUtilisateur" scope="request" input=""
+			parameter=""
+			type="presentation.utilisateur.action.VoirListeUtilisateurAction">
+			<forward name="success" path="listerUser" redirect="false" />
+		</action>
+
+		<!-- Détail d'une commande (CDE_01). -->
+		<!-- Jonathan -->
+		<action path="/voirDetailCommande" scope="request" input=""
+			parameter=""
+			type="presentation.commande.action.VoirDetailCommandeAction">
+			<forward name="success" path="detailCommande"
+				redirect="false" />
+		</action>
+
+		<!-- Lister Panier -->
+		<action path="/listerPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.VoirPanierAction">
+			<forward name="success" path="listerPanier" redirect="false" />
+		</action>
+
+		<!-- Vider Panier -->
+		<action path="/viderPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.ViderPanierAction">
+			<forward name="success" path="listerPanier" redirect="false" />
+		</action>
+		<!-- i18n -->
+		<action path="/langue" scope="request" input="" parameter=""
+			type="presentation.langue.LangueAction">
+		</action>
+
+		<!-- Affichage Cgu -->
+		<action path="/voirCgu" scope="request" input="" parameter=""
+			type="presentation.cgu.action.VoirCguAction">
+			<forward name="success" path="cgu" redirect="false"></forward>
+		</action>
+
+
+	</action-mappings>
+	<!-- Bundle -->
+	<message-resources parameter="application"></message-resources>
+
+	<!-- Déclaration du fichier de définition de Tiles -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+
+</struts-config>

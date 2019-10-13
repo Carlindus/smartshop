@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Robin -->
+<hibernate-mapping>
+    <class name="persistance.utilisateur.bean.UtilisateurDo" table="utilisateur">
+        <id name="idUtilisateur" column="idUtilisateur">
+            <generator class="identity"></generator>
+        </id>
+        <property name="nom" column="nom"></property>
+        <property name="prenom" column="prenom"></property>
+        <property name="email" column="email"></property>
+       	<property name="login" column="login"></property>
+       	<property name="motDePasse" column="motDePasse"></property>
+       	<property name="isAdmin" column="isAdmin"></property>
+       	<property name="isActif" column="isActif"></property>
+       	<property name="adresseLivraison" column="adresseLivraison"></property>
+       	<property name="adresseFacturation" column="adresseFacturation"></property>
+       	<property name="dateNaissance" column="dateNaissance"></property>
+       	
+       	
+       	<set name="commandeSet" cascade="all" lazy="false">
+       		<key column="idUtilisateur"></key>
+       		<one-to-many class="persistance.commande.bean.CommandeDo"></one-to-many>
+       	</set>
+       	
+   </class>
+</hibernate-mapping>

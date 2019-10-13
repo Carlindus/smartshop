@@ -1,0 +1,430 @@
+/* Feuille de style de l'application
+--------------------------------
+
+/!\ NE PAS MODIFIER LES STYLES CI-DESSOUS /!\*/
+.header {
+	padding: 9px;
+	background-color: #0096b1;
+	height: 15%;
+}
+
+.footer {
+	padding: 9px;
+	background-color: lightgrey;
+	height: 3%;
+}
+
+#container {
+	width: 100%;
+	height: 570px;
+}
+
+#menu {
+	background-color: #4a4a4a;
+	float: left;
+	width: 15%;
+	height: 100%;
+}
+
+#body {
+	float: left;
+	width: 85%;
+	height: 100%;
+	overflow: auto;
+}
+
+.floatleft {
+	float: left;
+}
+
+.floatright {
+	float: right;
+}
+
+
+.width100 {
+	width: 100%;
+}
+
+.clearfix { /* Casser/Arrter/Stopper la flotaison */
+	clear: both;
+}
+
+/* Ajouter ci-dessous les styles spcifiques
+ ----------------------------------------- */
+
+/* page detail
+ ----------------------------------------- */
+#iconDetail {
+	float:right;
+}
+
+
+/* Liste commande */
+/*----------------*/
+#listeCdeDiv {
+	border-width: 5px;
+	border: solid;
+	text-align: center;
+	padding: 15px 50px;
+	margin: 25px 0;
+}
+
+#listeCdeTab {
+	width: 100%;
+}
+
+.listeCdeThTd {
+	width: 25%;
+}
+
+/* Connexion */
+/*-----------*/
+#conTab {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tdRight {
+	text-align: right;
+}
+
+.tdLeft {
+	text-align: left;
+}
+
+.ConZoneSaisie {
+	size: 20px;
+	maxlength: 20px;
+}
+
+/* Liste Produit Accueil */
+/*-----------------------*/
+.listeProdAccueilDiv1 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.listeProdAccueilImg {
+	width: 100px;
+	height: 100px;
+}
+
+.listeProdAccueilTab1 {
+	width: 50%;
+	border-collapse: collapse;
+	margin: 10px;
+}
+
+.listeProdAccueilTab2 {
+	padding-top: 50px;
+}
+
+.listeProdAccueilTBody {
+	border: 1px solid black;
+	/* 	padding: 5px; */
+	/* 	border-collapse: separate; */
+}
+
+.listeProdAccueilTd1 {
+	text-align: left;
+	padding: 8px;
+	width: 25%;
+}
+
+.listeProdAccueilTd2 {
+	text-align: left;
+	padding: 8px;
+}
+
+.listeProdAccueilTd3 {
+	text-align: center;
+	width: 20%;
+}
+
+/* Lister Panier */
+/*---------------*/
+#listerPanierDiv1 {
+	width: 75%;
+	float: left;
+}
+
+#listerPanierTab {
+	border-collapse: collapse;
+	margin: 5px;
+}
+
+#listerPanierTBody {
+	border: 1px solid black;
+	/* 	padding: 5px; */
+	/* 	border-collapse: separate; */
+}
+
+.listerPanierTd1 {
+	width: 75%;
+	border-collapse: collapse;
+	margin: 10px;
+}
+
+.listerPanierTd2 {
+	text-align: left;
+	padding: 8px;
+	width: 25%
+}
+
+.listerPanierTd3 {
+	text-align: left;
+	padding: 8px;
+}
+
+.listerPanierTd4 {
+	width: 25%;
+	border-collapse: collapse;
+	margin: 10px;
+}
+
+#listerPanierTd4Div1 {
+	height: 30px;
+}
+
+#listerPanierTd4Div2 {
+	text-align: right;
+}
+
+#listerPanierDiv2 {
+	width: 24%;
+	height: 200px;
+	border: 1px solid black;
+	float: right;
+	margin-top: 5px;
+}
+
+#listerPanierImg {
+	width: 100px;
+	height: 100px;
+}
+
+/* Dtail Produit */
+/*----------------*/
+#detailProduitDiv1 {
+	padding: 15px 30px 30px 30px;
+}
+
+#detailProduitDiv2 {
+	float: left;
+}
+
+#detailProduitDiv3 {
+	float: left;
+	padding-left: 50px;
+}
+
+#detailProduitDiv4 {
+	clear: both;
+}
+
+#detailProduitDiv5 {
+	float: right;
+}
+
+#detailProduitImg {
+	width: 300px;
+	height: 300px;
+}
+
+/* Template */
+
+#menuGuest,
+#menuClient,
+#menuAdmin {
+list-style:none;
+margin-top:6.25em;
+padding-left:0;
+}
+#menuGuest li,
+#menuClient li,
+#menuAdmin li {
+margin-bottom:3.125em;
+}
+
+#buttonClient,
+#buttonAdmin{
+	width:100%;
+	height:3.125em;
+	
+}
+#navHeader{
+	display:inline; 
+	list-style:none;
+}
+#navHeader li{
+	display:inline; 
+}
+#navHeader li a i{
+	float:right;
+	color:black;
+	padding:10px;
+}
+#messageBienvenue{
+	padding-left:20%;
+	font: 3.125em bold;
+	
+}
+#flag{
+	width:2em;
+	height:1.5em;
+}
+#logo{
+	width:10em;
+	heiht:10em;
+}
+/* Vider Panier*/
+#viderPanier {
+	border: 1px solid gray;
+	background-color: #d3d3d3;
+	padding: 7px;
+	text-decoration: none;
+	color: black;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+.viderPanier {
+	margin: 15px;
+	
+}
+
+/* Dtail Commande */
+/*-----------------*/
+
+#detailCommandeContainer {
+	width: auto; 
+	border:1px solid black; 
+	margin:10px 30px
+}
+
+.DetailCommandeDiv1 {
+	margin: 10px;
+}
+
+.DetailCommandeDiv2 {
+	width: 850px;
+}
+
+#imgDetailCommande {
+	width: 100px;
+	height: 100px;
+}
+
+.paddingleft30px {
+	padding-left: 30px;
+}
+
+.boutonDetailCommande {
+	margin: 30px 0 0 30px;
+}
+
+
+/*cr�ation produit*/
+
+.longueur1{
+	width: 250px;
+}
+.longueur2{
+	width: 500px;
+}
+.titre{
+	text-align : left;
+}
+.space{
+	margin: 20px 40px;
+}
+#textarea{
+	width: 730px;
+	height: 130px;
+}
+#euro{
+	text-align: left;
+}
+
+/*Supprimer utilisateur*/
+
+#supprimerUserOk{
+	color: red;
+
+
+}
+
+/* upload image */
+
+.uploadImage{
+	
+	width: 100px; 
+	height:100px;
+
+}
+
+/* Ajouter ci-dessous les styles spcifiques
+ ----------------------------------------- */
+ 
+ .flex-row{
+ 	display: flex;
+ }
+ .flex-col{
+ 	display: flex;
+ 	flex-direction: column;
+ }
+ img{
+ 	width: 100%;
+ }
+ .header{
+ 	display: flex;
+ 	justify-content: space-between;
+ }
+ .fas, .fab{
+ 	font-size: 3rem;
+ 	margin: 10px;
+ }
+ 
+ #flag{
+ 	display: flex;
+ 	flex-direction: flex-row;
+ 	justify-content: space-around; 
+ }
+ .footer{
+ 	display: flex;
+ 	flex: 1;
+ }
+.footer img{
+	width: 200px;
+}
+.footer>div{
+	flex:1;
+	}
+.footer .logo,
+.footer .resSoc{
+	text-align:center;
+	
+}
+a{
+	color: black !important;
+}
+#listeProdAccueilTab1.table td,
+#listeProdAccueilTab1.table th{
+	vertical-align: text-top;
+}
+td img{
+	max-height: 100px;
+	max-width: 60%;
+	margin: 0 auto;
+}
+.table .fas,
+.table .fab{
+	font-size: 1.5rem; 
+}
+.w-80{
+	max-width: 80%;
+	margin: 0 auto;
+}

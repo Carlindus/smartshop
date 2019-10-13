@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Laurent -->
+<hibernate-mapping>
+    <class name="persistance.commande.bean.LigneCommandeDo" table="lignecommande">
+        <id name="idLigneCde" column="idLigneCde">
+            <generator class="identity"></generator>
+        </id>
+       	<many-to-one name="commandeDo" column="idCde" lazy="false"></many-to-one>
+       	<many-to-one name="produitCdeDo" column="idProduitCde" lazy="false"></many-to-one>
+        <property name="quantite" column="quantite"></property>
+   </class>
+</hibernate-mapping>

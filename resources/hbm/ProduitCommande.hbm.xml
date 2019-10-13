@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="persistance.produit.bean.ProduitCommandeDo" table="produitcommande">
+        <id name="idProduitCde" column="idProduitCde">
+            <generator class="identity"></generator>
+        </id>
+        <property name="reference" column="reference"></property>
+        <property name="description" column="description"></property>
+        <property name="prix" column="prix"></property>
+        <property name="image" column="image"></property>
+        <property name="idProduit" column="idProduit"></property>
+        
+    </class>
+</hibernate-mapping>
+<!-- Audrey -->

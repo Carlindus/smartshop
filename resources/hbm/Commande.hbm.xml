@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Robin -->
+<hibernate-mapping>
+    <class name="persistance.commande.bean.CommandeDo" table="commande">
+        <id name="idCde" column="idCde">
+            <generator class="identity"></generator>
+        </id>
+        <property name="dateCde" column="dateCde"></property>
+       	<property name="montantTotal" column="montantTotal"></property>
+       	<property name="montantRemise" column="montantRemise"></property>
+       	<property name="adresseLivraison" column="adresseLivraison"></property>
+       	<property name="adresseFacturation" column="adresseFacturation"></property>
+        <property name="idUtilisateur" column="idUtilisateur"></property>
+       	<set name="ligneCommandeSet" cascade="all" lazy="false">
+       		<key column="idCde"></key>
+       		<one-to-many class="persistance.commande.bean.LigneCommandeDo"></one-to-many>
+       	</set>
+   </class>
+</hibernate-mapping>

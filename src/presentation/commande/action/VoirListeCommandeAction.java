@@ -46,6 +46,7 @@ public class VoirListeCommandeAction extends Action {
      */
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+      System.out.println("---------------- into VoirListeCommandeAction ----------------");
         // on r�cup�re les donn�es
         session = request.getSession(true);
         final ICommandeService CommandeService = new CommandeService();

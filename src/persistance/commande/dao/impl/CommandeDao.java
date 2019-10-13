@@ -4,7 +4,6 @@
 package persistance.commande.dao.impl;
 
 import java.util.List;
-import java.sql.Timestamp;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -16,23 +15,19 @@ import persistance.commande.bean.CommandeDo;
 import persistance.commande.bean.LigneCommandeDo;
 import persistance.commande.dao.ICommandeDao;
 import persistance.factory.HibernateFactory;
-import persistance.produit.bean.ProduitCommandeDo;
-import persistance.produit.bean.ProduitDo;
-import presentation.commande.bean.CommandeDto;
-import presentation.produit.bean.ProduitDto;
 
 /**
  * @author Guilaume
  *
  */
-public class CommandeDao implements ICommandeDao{
-    
+public class CommandeDao implements ICommandeDao {
+
     public static ICommandeDao getInstance() {
         return new CommandeDao();
     }
-    
+
     final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
-    
+
     /**
      * 
      * @param commandeDo
@@ -42,42 +37,42 @@ public class CommandeDao implements ICommandeDao{
      */
     @Override
     public CommandeDo addCommande(CommandeDo commandeDo) {
-        try(final Session session = sessionFactory.openSession()){
-            final Transaction transaction = session.beginTransaction();            
-            
-            session.save(commandeDo);     
-            
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+
+            session.save(commandeDo);
+
             transaction.commit();
-            return commandeDo;            
+            return commandeDo;
         }
     }
-    
+
     @Override
     public LigneCommandeDo addLigneCommande(LigneCommandeDo ligneCommandeDo) {
-        try(final Session session = sessionFactory.openSession()){
-            final Transaction transaction = session.beginTransaction();            
-                
-            session.save(ligneCommandeDo);        
-            
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+
+            session.save(ligneCommandeDo);
+
             transaction.commit();
-            return ligneCommandeDo;            
+            return ligneCommandeDo;
         }
     }
-    
+
     /**
      * @param id
      * @return
      */
     @Override
-    public List<CommandeDo> findAllCommandeByUtilisateur(final int id){
-        try(final Session session = sessionFactory.openSession()){
+    public List<CommandeDo> findAllCommandeByUtilisateur(final int id) {
+        try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            final Query<CommandeDo> query  = session.createQuery("FROM CommandeDo WHERE idUtilisateur = :idParam", CommandeDo.class);
-            
+            final Query<CommandeDo> query = session.createQuery("FROM CommandeDo WHERE idUtilisateur = :idParam", CommandeDo.class);
+
             query.setParameter("idParam", id);
-            
+
             final List<CommandeDo> commandeDo = query.getResultList();
-            
+
             session.flush();
             transaction.commit();
             return commandeDo;
@@ -88,49 +83,50 @@ public class CommandeDao implements ICommandeDao{
      * @return
      */
     @Override
-    public List<CommandeDo> findAllCommande(){
-    	try(final Session session = sessionFactory.openSession()){
+    public List<CommandeDo> findAllCommande() {
+        try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            final Query<CommandeDo> query  = session.createQuery("FROM CommandeDo", CommandeDo.class);
-            
+            final Query<CommandeDo> query = session.createQuery("FROM CommandeDo", CommandeDo.class);
+
             final List<CommandeDo> commandeDo = query.getResultList();
-            
+
             session.flush();
             transaction.commit();
             return commandeDo;
         }
     }
-    
+
     /**
      * @param idCommande
      * @return
      */
     @Override
     public CommandeDo findCommande(final int idCommande) {
-        try(final Session session = sessionFactory.openSession()){
+        try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            final Query<CommandeDo> query  = session.createQuery("FROM CommandeDo WHERE idCde = :idParam", CommandeDo.class);
-            
+            final Query<CommandeDo> query = session.createQuery("FROM CommandeDo WHERE idCde = :idParam", CommandeDo.class);
+
             query.setParameter("idParam", idCommande);
-            
+
             final CommandeDo commandeDo = query.getSingleResult();
-            
+
             session.flush();
             transaction.commit();
             return commandeDo;
         }
     }
-    
+
     /**
      * remove idUtilisateur from a order(s).
+     * 
      * @param idUser
      * @return boolean
      */
     @Override
     public boolean supprimerAssociation(final int idUser) {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
-            final Transaction transaction = session.beginTransaction();
-            final Query<CommandeDo> query = session.createQuery("UPDATE CommandeDo cd SET cd.utilisateurDo.idUtilisateur = NULL WHERE cd.utilisateurDo.idUtilisateur= :id");
+            Transaction transaction = session.beginTransaction();
+            final Query<CommandeDo> query = session.createQuery("UPDATE CommandeDo as cd SET cd.idUtilisateur = NULL WHERE cd.idUtilisateur=:id");
             query.setParameter("id", idUser);
             query.executeUpdate();
             session.flush();

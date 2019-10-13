@@ -23,7 +23,7 @@
 	</definition>
 
 	<!-- Modification client (USER_02). -->
-	<definition name="modifierUser" path="/jsp/common-layout.jsp">
+	<definition name="modifierUtilisateur" path="/jsp/common-layout.jsp">
 		<put name="header" value="/jsp/template/header.jsp" />
 		<put name="menu" value="/jsp/template/menu.jsp" />
 		<put name="body" value="/jsp/utilisateur/modifierUtilisateur.jsp" />
@@ -31,15 +31,15 @@
 	</definition>
 
 	<!-- Lister utilisateurs (USR_03). -->
-	<definition name="listerUser" path="/jsp/common-layout.jsp">
+	<definition name="listerUtilisateur" path="/jsp/common-layout.jsp">
 		<put name="header" value="/jsp/template/header.jsp" />
 		<put name="menu" value="/jsp/template/menu.jsp" />
-		<put name="body" value="/jsp/utilisateur/lister.jsp" />
+		<put name="body" value="/jsp/utilisateur/listeUtilisateur.jsp" />
 		<put name="footer" value="/jsp/template/footer.jsp" />
 	</definition>
 
 	<!-- Afficher infos utilisateurs (USR_04). -->
-	<definition name="DetailUser" path="/jsp/common-layout.jsp">
+	<definition name="detailUtilisateur" path="/jsp/common-layout.jsp">
 		<put name="header" value="/jsp/template/header.jsp" />
 		<put name="menu" value="/jsp/template/menu.jsp" />
 		<put name="body" value="/jsp/utilisateur/detailUtilisateur.jsp" />
@@ -83,7 +83,7 @@
 	<definition name="modifierProduit" path="/jsp/common-layout.jsp">
 		<put name="header" value="/jsp/template/header.jsp" />
 		<put name="menu" value="/jsp/template/menu.jsp" />
-		<put name="body" value="/jsp/panier/modifierProduit.jsp" />
+		<put name="body" value="/jsp/produit/modifierProduit.jsp" />
 		<put name="footer" value="/jsp/template/footer.jsp" />
 	</definition>
 
@@ -100,6 +100,14 @@
 		<put name="header" value="/jsp/template/header.jsp" />
 		<put name="menu" value="/jsp/template/menu.jsp" />
 		<put name="body" value="/jsp/panier/validerPanier.jsp" />
+		<put name="footer" value="/jsp/template/footer.jsp" />
+	</definition>
+
+	<!-- Validation de la commande (PAN_01). -->
+	<definition name="validerCommande" path="/jsp/common-layout.jsp">
+		<put name="header" value="/jsp/template/header.jsp" />
+		<put name="menu" value="/jsp/template/menu.jsp" />
+		<put name="body" value="/jsp/commande/validerCommande.jsp" />
 		<put name="footer" value="/jsp/template/footer.jsp" />
 	</definition>
 

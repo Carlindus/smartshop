@@ -26,18 +26,19 @@ public class VoirListeProduitAccueilAction extends Action {
     /**
      * nom de l'attribut pour avoir la liste des produits en vente
      */
-    public static final String LISTE_PRODUIT_DTO = "listeProduitDto";
-    private static final String FORWARD_SUCCESS = "success";
+    public static final String  LISTE_PRODUIT_DTO = "listeProduitDto";
+    private static final String FORWARD_SUCCESS   = "success";
 
     /**
-     * Recupere la liste des produits en vente dans la BDD, l'insert dans la requete et forward vers la JSP associé
+     * Recupere la liste des produits en vente dans la BDD, l'insert dans la requete et forward vers la JSP associï¿½
      */
-   @Override
+    @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-       IProduitService produitService = MyFactory.getInstance(IProduitService.class);
-       List<ProduitDto> listeProduitDto = produitService.findAllProduitEnVente();
-       request.setAttribute(LISTE_PRODUIT_DTO, listeProduitDto);
-       return mapping.findForward(FORWARD_SUCCESS);
+        System.out.println("@VoirListeProduitAccueilAction");
+        IProduitService produitService = MyFactory.getInstance(IProduitService.class);
+        List<ProduitDto> listeProduitDto = produitService.findAllProduitEnVente();
+        request.setAttribute(LISTE_PRODUIT_DTO, listeProduitDto);
+        return mapping.findForward(FORWARD_SUCCESS);
     }
 
 }

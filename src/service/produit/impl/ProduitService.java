@@ -5,7 +5,6 @@ package service.produit.impl;
 
 import java.util.List;
 
-import persistance.image.dao.IImageDao;
 import persistance.produit.bean.ProduitCommandeDo;
 import persistance.produit.bean.ProduitDo;
 import persistance.produit.dao.IProduitDao;
@@ -74,9 +73,11 @@ public class ProduitService implements IProduitService {
     @Override
     public boolean addProduit(ProduitDto produitDto) {
         IProduitDao produitDao = MyFactory.getInstance(IProduitDao.class);
-        if (!addPicture(produitDto)) {
-            return false;
-        }
+        /*
+         * if (!addPicture(produitDto)) {
+         * return false;
+         * }
+         */
         ProduitDo produitDo = produitDao.addProduit(ProduitMapper.mapProduitDtoToProduitDo(produitDto));
 
         if ((produitDo != null) && (produitDo.getReference() != null)) {
@@ -88,10 +89,11 @@ public class ProduitService implements IProduitService {
 
     @Override
     public boolean addPicture(ProduitDto produitDto) {
-        IImageDao imageDao = MyFactory.getInstance(IImageDao.class);
+        // TODO uncommentTodo this part
+        // IImageDao imageDao = MyFactory.getInstance(IImageDao.class);
         try {
-            return imageDao.stockerImageDisqueDur(ProduitMapper.produitDtoToImageDo(produitDto));
-
+            // return imageDao.stockerImageDisqueDur(ProduitMapper.produitDtoToImageDo(produitDto));
+            return true;
         } catch (Exception e) {
             // TODO: handle exception
             return false;

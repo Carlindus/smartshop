@@ -23,15 +23,18 @@
 		<logic:iterate name="<%=VoirListeCommandeAction.LISTE_COMMANDE_REQUEST %>" id="commande">
 			<%-- lien avec de EL --%>
 			<hr/>
-			<bean:message key="listerCommande.date.commande"/><bean:write name="commande" property="dateCde"/><br/>
-			<bean:message key="listerCommande.adresse.facturation"/><bean:write name="commande" property="adresseFacturation"/><br/>
-			<bean:message key="listerCommande.adresse.livraison"/><bean:write name="commande" property="adresseLivraison"/><br/>
+			<div class="listOrders">
+			<bean:message key="listerCommande.date.commande"/> : <bean:write name="commande" property="dateCde"/><br/>
+			<bean:message key="listerCommande.adresse.facturation"/> : <bean:write name="commande" property="adresseFacturation"/><br/>
+			<bean:message key="listerCommande.adresse.livraison"/> : <bean:write name="commande" property="adresseLivraison"/><br/>
+			<bean:message key="listerCommande.montant.total"/> : <bean:write name="commande" property="montantTotal"/>€<br/>
+			<bean:message key="listerCommande.montant.remise"/> : <bean:write name="commande" property="montantRemise"/>€<br/>
 			<html:link href="voirDetailCommande.do?idCde=${commande.idCde}">
 				<html:button property="">
 					<bean:message key="listerCommande.voirDetail"/>
 				</html:button>
 			</html:link>
-
+			</div>
 			<hr/>
 			<br />
 		</logic:iterate>

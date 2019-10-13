@@ -17,7 +17,7 @@ import util.MyFactory;
  * @author Ian
  *
  */
-public class DownloadImage extends HttpServlet {
+public class DownloadImage extends HttpServlet{
 
     /**
      * 
@@ -35,9 +35,9 @@ public class DownloadImage extends HttpServlet {
 
         final String imageName = req.getParameter("file");
         final IImageService imageService = MyFactory.getInstance(IImageService.class);
-        System.out.println("IMG NAME" + imageName);
+       // System.out.println("IMG NAME" + imageName);
         final byte[] imageBytes = imageService.recoverImageData(imageName);
-        System.out.println("IMG BYTTTE" + imageBytes);
+       // System.out.println("IMG BYTTTE" + imageBytes);
         resp.setContentType("image/jpg");
         resp.setContentLength(imageBytes.length);
         resp.getOutputStream().write(imageBytes);

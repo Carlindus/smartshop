@@ -9,9 +9,9 @@
 
 <html:form action="/validerPanier.do" focus="id">
 	
-	<h1><bean:message key="validerCommande.titre.validationCommande" /></h1>
-	<h2><bean:message key="validerCommande.titre.recapitulatifCommande" /></h2>
-	<bean:message key="validerCommande.recapitulatifCommande" arg0="${PanierDto.getMapProduitDto.size()}" arg1="${PanierDto.montantAPayer}" />
+	<h1><bean:message key="validerPanier.titre.validationPanier" /></h1>
+	<h2><bean:message key="validerPanier.titre.recapitulatifPanier" /></h2>
+	<bean:message key="validerPanier.recapitulatifPanier" arg0="${PanierDto.getMapProduitDto.size()}" arg1="${PanierDto.montantAPayer}" />
 	
 	
 	<h2><bean:message key="validerCommande.titre.infoPersonnelles" /></h2>

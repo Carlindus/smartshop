@@ -35,12 +35,14 @@ public class VoirDetailUtilisateurAction extends Action {
      * javax.servlet.http.HttpServletResponse)
      */
     @Override
-    public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-
+    public ActionForward execute(final ActionMapping mapping, final ActionForm form,
+                                 final HttpServletRequest request, final HttpServletResponse response)
+                                 throws Exception {
+        System.out.println("VoirDetailUtilisateur");
         // on recupere l'id de l'utilisateur en parametre
         final String idParam = request.getParameter("idParam");
         final int idUtilisateur = Integer.parseInt(idParam);
-
+        System.out.println("idUser = " + idUtilisateur);
         // on va rechercher les donnees via le service
         final IUtilisateurService utilisateurService = MyFactory.getInstance(IUtilisateurService.class);
         final UtilisateurDto utilisateurDto = utilisateurService.findUtilisateur(idUtilisateur);

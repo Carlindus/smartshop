@@ -34,7 +34,7 @@ public class CommandeService implements ICommandeService {
     public CommandeService() {
         // empty method
     }
-    
+
     /**
      * @return
      */

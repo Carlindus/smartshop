@@ -12,11 +12,6 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import presentation.utilisateur.bean.ConnectedUserDto;
-import presentation.utilisateur.bean.UtilisateurDto;
-import service.utilisateur.IUtilisateurService;
-import util.MyFactory;
-
 /**
  * @author Ahmed
  *
@@ -24,8 +19,7 @@ import util.MyFactory;
 public class VoirConnexionAction extends Action {
 
     private static final String FORWARD_SUCCESS       = "success";
-    private static final String FORWARD_CONNECT_ADMIN = "successConnecteAdmin";
-    private static final String FORWARD_CONNECT       = "successConnecte";
+
 
     /*
      * (non-Javadoc)
@@ -35,9 +29,6 @@ public class VoirConnexionAction extends Action {
      */
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-
-        final HttpSession session = request.getSession();
-
 
         return mapping.findForward(FORWARD_SUCCESS);
 

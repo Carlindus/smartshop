@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="./css/layout.css" />
 </head>
 <body>
-	<div class="header">
+	<div id="header">
 		<tiles:insert attribute="header" />
 	</div>
 
@@ -28,9 +28,8 @@
 			<tiles:insert attribute="body" />
 		</div>
 	</div>
-	<div class="clearfix"></div>
 
-	<div class="footer">
+	<div id="footer">
 		<tiles:insert attribute="footer" />
 	</div>
 </body>

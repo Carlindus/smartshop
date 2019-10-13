@@ -19,16 +19,14 @@ import presentation.utilisateur.form.UtilisateurForm;
 import service.utilisateur.IUtilisateurService;
 import util.MyFactory;
 
-
-
 /**
  * @author Clement
  *
  */
 public class InscriptionAction extends Action {
 
-	private static final String FORWARD_SUCCESS = "success";
-	
+    private static final String FORWARD_SUCCESS = "success";
+
     /*
      * (non-Javadoc)
      * 
@@ -37,45 +35,48 @@ public class InscriptionAction extends Action {
      */
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-      
-    			
-    	final UtilisateurForm utilisateurForm = (UtilisateurForm) form;
 
-		// on effectue le traitement
-		final IUtilisateurService utilisateurService = MyFactory.getInstance(IUtilisateurService.class);
-		UtilisateurDto utilisateurDto = mapFormToDto(utilisateurForm);
-		utilisateurDto = utilisateurService.addUtilisateur(utilisateurDto);
+        final UtilisateurForm utilisateurForm = (UtilisateurForm) form;
 
-		// selon le résultat de la création
-		if (utilisateurDto == null) {
-			// création KO
-			final ActionErrors errors = new ActionErrors();
-			errors.add(ActionMessages.GLOBAL_MESSAGE,
-					new ActionMessage("creer.user.ko"));
-			saveErrors(request, errors);
-		} else {
-			// création OK
-			final ActionMessages messages = new ActionMessages();
-			messages.add(ActionMessages.GLOBAL_MESSAGE,
-					new ActionMessage("creer.user.ok"));
-			saveMessages(request, messages);
-		}
+        // on effectue le traitement
+        final IUtilisateurService utilisateurService = MyFactory.getInstance(IUtilisateurService.class);
+        UtilisateurDto utilisateurDto = mapFormToDto(utilisateurForm);
+        utilisateurDto = utilisateurService.addUtilisateur(utilisateurDto);
 
-		return mapping.findForward(FORWARD_SUCCESS);
+        // selon le rï¿½sultat de la crï¿½ation
+        if (utilisateurDto == null) {
+            // crï¿½ation KO
+            final ActionErrors errors = new ActionErrors();
+            errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("creer.user.ko"));
+            saveErrors(request, errors);
+        } else {
+            // crï¿½ation OK
+            final ActionMessages messages = new ActionMessages();
+            messages.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("creer.user.ok"));
+            saveMessages(request, messages);
+        }
+
+        return mapping.findForward(FORWARD_SUCCESS);
     }
-    
+
     protected UtilisateurDto mapFormToDto(final UtilisateurForm form) {
-		final UtilisateurDto utilisateur = new UtilisateurDto();
-		utilisateur.setDateNaissance(form.getDateNaissance());
-		utilisateur.setNom(form.getNom());
-		utilisateur.setPrenom(form.getPrenom());
-		utilisateur.setAdresseFacturation(form.getAdresseFacturation());
-		utilisateur.setAdresseLivraison(form.getAdresseLivraison());
-		utilisateur.setLogin(form.getLogin());
-		utilisateur.setEmail(form.getEmail());
-		utilisateur.setMotDePasse(form.getMotDePasse());		
-		
-		return utilisateur;
-	}
+        final UtilisateurDto utilisateur = new UtilisateurDto();
+        // TODO change the date format
+        if (form.getDateNaissance().equals("")) {
+            String dateNaissance = "jj/mm/aaaa";
+            utilisateur.setDateNaissance(dateNaissance);
+        } else {
+            utilisateur.setDateNaissance(form.getDateNaissance());
+        }
+        utilisateur.setNom(form.getNom());
+        utilisateur.setPrenom(form.getPrenom());
+        utilisateur.setAdresseFacturation(form.getAdresseFacturation());
+        utilisateur.setAdresseLivraison(form.getAdresseLivraison());
+        utilisateur.setLogin(form.getLogin());
+        utilisateur.setEmail(form.getEmail());
+        utilisateur.setMotDePasse(form.getMotDePasse());
+
+        return utilisateur;
+    }
 
 }

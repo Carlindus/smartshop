@@ -41,11 +41,14 @@ public class FiltreHttp implements Filter {
         droitsAcces.put("listerUtilisateur", ACCES_ADMIN);
         droitsAcces.put("voirCreerProduit", ACCES_ADMIN);
         droitsAcces.put("creerProduit", ACCES_ADMIN);
+        droitsAcces.put("modifierProduit", ACCES_ADMIN);
+        droitsAcces.put("supprimerProduit", ACCES_ADMIN);
         droitsAcces.put("listerProduitAdmin", ACCES_ADMIN);
         droitsAcces.put("voirListeCommande", ACCES_ADMIN);
         droitsAcces.put("voirDetailCommande", ACCES_ADMIN);
+        droitsAcces.put("voirModifierProduit", ACCES_ADMIN);
 
-        // Acces UtilisateurConnect�
+        // Acces UtilisateurConnecté
         droitsAcces.put("deconnexion", ACCES_USER);
         droitsAcces.put("listerProduitAccueil", ACCES_USER);
         droitsAcces.put("voirDetailUtilisateur", ACCES_USER);
@@ -59,8 +62,10 @@ public class FiltreHttp implements Filter {
         droitsAcces.put("supprimerLignePanier", ACCES_USER);
         droitsAcces.put("listerPanier", ACCES_USER);
         droitsAcces.put("viderPanier", ACCES_USER);
+        droitsAcces.put("validerPanier", ACCES_USER);
+        droitsAcces.put("validerCommande", ACCES_USER);
 
-        // Acces Invit�
+        // Acces Invité
         droitsAcces.put("voirConnexion", ACCES_INVITE);
         droitsAcces.put("connexion", ACCES_INVITE);
         droitsAcces.put("listerProduitAccueil", ACCES_INVITE);

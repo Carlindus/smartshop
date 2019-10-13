@@ -35,6 +35,7 @@ public class ValiderCommandeAction extends Action {
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
+        System.out.println("@ValiderCommandeAction");
         final HttpSession session = request.getSession();
         final PanierDto panier = (PanierDto) session.getAttribute(ConnexionAction.MAP_PANIER_SESSION);
         final ConnectedUserDto connectedUserDto = (ConnectedUserDto) session.getAttribute(ConnexionAction.CONNECTED_USER);

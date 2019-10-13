@@ -10,7 +10,7 @@
 		
 		
 		<div id="detailProduitDiv2">
-			<html:img src="imageServlet?file=${produit.image}" styleId="detailProduitImg"></html:img>
+			<html:img src="imageServlet?file=${produit.image}" class="detailProduitImg"></html:img>
 		</div>
 	
 	

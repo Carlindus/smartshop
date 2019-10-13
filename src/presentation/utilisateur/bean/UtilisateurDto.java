@@ -21,14 +21,41 @@ public class UtilisateurDto {
     private String           motDePasse;
     private String           adresseLivraison;
     private String           adresseFacturation;
-    private boolean          isAdmin;
-    private boolean          isActif;
+    private boolean          isAdmin=false;
+    private boolean          isActif=true;
     private Set<CommandeDto> commandeSet;
 
+    /**
+     * 
+     */
     // Constructeur par defaut
     public UtilisateurDto() {
         super();
     }
+    
+    
+    /**
+     * @param nom
+     * @param prenom
+     * @param dateNaissance
+     * @param email
+     * @param login
+     * @param motDePasse
+     * @param adresseLivraison
+     * @param adresseFacturation
+     */
+    public UtilisateurDto(String nom, String prenom, String dateNaissance, String email, String login, String motDePasse, String adresseLivraison, String adresseFacturation) {
+        super();
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.email = email;
+        this.login = login;
+        this.motDePasse = motDePasse;
+        this.adresseLivraison = adresseLivraison;
+        this.adresseFacturation = adresseFacturation;
+    }
+
 
     /**
      * 

@@ -3,9 +3,6 @@
  */
 package presentation.produit.action;
 
-import java.io.File;
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,31 +25,44 @@ import util.MyFactory;
 public class CreerProduitAction extends Action {
 
     private static final String FORWARD_SUCCESS = "success";
-    
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form, 
-            HttpServletRequest request, HttpServletResponse response) 
-                    throws Exception {
+    private static final String FORWARD_FAIL    = "fail";
 
+    @Override
+    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("-----------into CreerProduitAction -------------");
         ProduitDto produitDto = new ProduitDto();
         final ProduitForm produitForm = (ProduitForm) form;
-        
-        //enregistre données du formulaire dans le produitDto
+        System.out.println("produitForm :");
+        System.out.println(produitForm.toString());
+
+        // enregistre donnï¿½es du formulaire dans le produitDto
         produitDto.setDescription(produitForm.getDescription());
-        produitDto.setEtat(produitForm.getEtat());
+        produitDto.setEtat(produitForm.isEnVente());
         produitDto.setPrix(Double.parseDouble(produitForm.getPrix()));
         produitDto.setReference(produitForm.getReference());
-        produitDto.setImage(produitForm.getImageFile().getFileName());
-        produitDto.setData(produitForm.getImageFile().getFileData());
+        // produitDto.setImage(produitForm.getImage().getFileName());
+        // produitDto.setData(produitForm.getImage().getFileData());
+
+        System.out.println();
+        System.out.println("produitDto :");
+        System.out.println(produitDto.toString());
+        System.out.println(produitDto.getReference());
+        System.out.println(produitDto.getPrix());
+        System.out.println(produitDto.getDescription());
+        System.out.println(produitDto.getEtat());
 
         final IProduitService produitService = MyFactory.getInstance(IProduitService.class);
-        produitService.addProduit(produitDto);
+
+        boolean resultAddProduct = produitService.addProduit(produitDto);
+        if (!resultAddProduct) {
+            return mapping.findForward(FORWARD_FAIL);
+        }
         ActionMessages messages = new ActionMessages();
-        final ActionMessage message = new ActionMessage("creerProduit.success", new Object[] {produitDto.getReference()});
+        final ActionMessage message = new ActionMessage("creerProduit.success", new Object[] { produitDto.getReference() });
         messages.add(ActionMessages.GLOBAL_MESSAGE, message);
         saveMessages(request, messages);
+
         return mapping.findForward(FORWARD_SUCCESS);
-    
     }
-      
+
 }

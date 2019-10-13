@@ -3,10 +3,9 @@
  */
 package presentation.produit.bean;
 
-import java.io.File;
-
 /**
  * Data Transfer Object pour le produit
+ * 
  * @author Audrey
  *
  */
@@ -19,14 +18,13 @@ public class ProduitDto {
     private String  image;
     private boolean etat;
     private byte[]  data;
-    
+
     /**
-     * constructeur par défaut
+     * constructeur par dï¿½faut
      */
     public ProduitDto() {
     }
 
-    
     /**
      * @return the idProduit
      */
@@ -34,16 +32,14 @@ public class ProduitDto {
         return idProduit;
     }
 
-    
     /**
-     * @param idProduit 
-     * the idProduit to set
+     * @param idProduit
+     *            the idProduit to set
      */
     public void setIdProduit(int idProduit) {
         this.idProduit = idProduit;
     }
 
-    
     /**
      * @return the reference
      */
@@ -51,16 +47,14 @@ public class ProduitDto {
         return reference;
     }
 
-    
     /**
-     * @param reference 
-     * the reference to set
+     * @param reference
+     *            the reference to set
      */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
-    
     /**
      * @return the description
      */
@@ -68,16 +62,14 @@ public class ProduitDto {
         return description;
     }
 
-    
     /**
-     * @param description 
-     * the description to set
+     * @param description
+     *            the description to set
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    
     /**
      * @return the prix
      */
@@ -85,16 +77,14 @@ public class ProduitDto {
         return prix;
     }
 
-    
     /**
-     * @param prix 
-     * the prix to set
+     * @param prix
+     *            the prix to set
      */
     public void setPrix(double prix) {
         this.prix = prix;
     }
 
-    
     /**
      * @return the image
      */
@@ -102,16 +92,14 @@ public class ProduitDto {
         return image;
     }
 
-    
     /**
-     * @param image 
-     * the image to set
+     * @param image
+     *            the image to set
      */
     public void setImage(String image) {
         this.image = image;
     }
 
-    
     /**
      * @return the etat
      */
@@ -119,16 +107,14 @@ public class ProduitDto {
         return etat;
     }
 
-    
     /**
-     * @param etat 
-     * the etat to set
+     * @param etat
+     *            the etat to set
      */
     public void setEtat(boolean etat) {
         this.etat = etat;
     }
 
-    
     /**
      * @return the data
      */
@@ -136,15 +122,17 @@ public class ProduitDto {
         return data;
     }
 
-    
     /**
-     * @param data 
-     * the data to set
+     * @param data
+     *            the data to set
      */
     public void setData(byte[] data) {
         this.data = data;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "ProduitDto [idProduit=" + idProduit + ",\n reference=" + reference + ",\n description=" + description + ",\n prix=" + prix + ",\n etat=" + etat + "\n ]";
+    }
+
 }

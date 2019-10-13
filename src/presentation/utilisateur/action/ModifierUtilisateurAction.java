@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
+import org.apache.struts.action.ActionRedirect;
 
 import presentation.utilisateur.bean.UtilisateurDto;
 import presentation.utilisateur.form.UtilisateurForm;
@@ -59,10 +60,12 @@ public class ModifierUtilisateurAction extends Action {
             // creation OK
             final ActionMessages messages = new ActionMessages();
             messages.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("modifier.user.ok"));
-            saveMessages(request, messages);
+            saveMessages(request.getSession(), messages);
         }
 
-        return mapping.findForward(FORWARD_SUCCESS);
+        ActionRedirect redirect = new ActionRedirect(mapping.findForward("success"));
+        redirect.addParameter("idParam", utilisateurDto.getIdUtilisateur());
+        return redirect;
     }
 
     /**
@@ -75,7 +78,7 @@ public class ModifierUtilisateurAction extends Action {
      */
     protected UtilisateurDto mapFormToDto(final UtilisateurForm form) {
         final UtilisateurDto utilisateur = new UtilisateurDto();
-        // utilisateur.setIdUtilisateur(Integer.parseInt(form.getIdUtilisateur()));
+        utilisateur.setIdUtilisateur(form.getIdUtilisateur());
         utilisateur.setNom(form.getNom());
         utilisateur.setPrenom(form.getPrenom());
         utilisateur.setDateNaissance(form.getDateNaissance());

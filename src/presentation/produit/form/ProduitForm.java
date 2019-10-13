@@ -8,39 +8,31 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 import org.apache.struts.upload.FormFile;
-
-import presentation.produit.bean.ProduitDto;
-import presentation.utilisateur.bean.UtilisateurDto;
 
 /**
  * @author Alexy
- *test merge request
+ *         test merge request
  *
  */
 public class ProduitForm extends ActionForm {
 
     /**
-     * 
-     * 
-     * 
      */
     private static final long serialVersionUID = 8588116075065580728L;
-    
-    private String produitReference;
-    private String produitPrix;
-    
 
-    private String produitDescription;
-    private boolean produitEnVente;
-    private FormFile produitImage;
-    
+    private int      idProduit;
+    private String   reference;
+    private String   prix;
+    private String   description;
+    private boolean  enVente;
+    private FormFile image;
+
     /**
      * 
      */
     public ProduitForm() {
-        
+        System.out.println("----- ProduitForm CONSTRUCTOR ----------");
     }
 
     /*
@@ -50,9 +42,12 @@ public class ProduitForm extends ActionForm {
      */
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
-        
-        super.reset(mapping, request);
-        
+
+        this.reference = "";
+        this.description = "";
+        this.image = null;
+        this.enVente = false;
+
     }
 
     /*
@@ -62,52 +57,79 @@ public class ProduitForm extends ActionForm {
      */
     @Override
     public ActionErrors validate(final ActionMapping mapping, final HttpServletRequest request) {
+        System.out.println("-------- VALIDATE ProduitForm --------");
         ActionErrors errorForm = new ActionErrors();
-        
-        if(produitReference.isEmpty()) {
-            errorForm.add("produitReference",new ActionMessage("errors.reference.obligatoire"));
-        }
-        
-        if(produitImage.getFileSize()==0) {
-            errorForm.add("produitImage",new ActionMessage("errors.image.obligatoire"));
-        }
-        
-        if(produitPrix.isEmpty()) {
-            errorForm.add("produitPrix",new ActionMessage("errors.prix.obligatoire"));
-            try {
-                if(Double.parseDouble(produitPrix) < 0) {
-                    errorForm.add("produitPrix",new ActionMessage("errors.prix.negatif"));
-                }
-               
-            }catch(final NumberFormatException e) {
-                e.printStackTrace();
-                errorForm.add("produitPrix",new ActionMessage("errors.prix.type"));
-         
-            }
-        }
-        
+
+        /*
+         * if(reference.isEmpty()) {
+         * errorForm.add("reference",new ActionMessage("errors.reference.obligatoire"));
+         * }
+         * 
+         * if(prix.isEmpty()) {
+         * errorForm.add("prix",new ActionMessage("errors.prix.obligatoire"));
+         * try {
+         * if(Double.parseDouble(prix) < 0) {
+         * errorForm.add("prix",new ActionMessage("errors.prix.negatif"));
+         * }
+         * 
+         * }catch(final NumberFormatException e) {
+         * e.printStackTrace();
+         * errorForm.add("prix",new ActionMessage("errors.prix.type"));
+         * 
+         * }
+         * }
+         */
+        System.out.println("errorForm = " + errorForm.toString());
         return errorForm;
+
     }
-    
+
+    public int getIdProduit() {
+        return idProduit;
+    }
+
+    public void setIdProduit(int idProduit) {
+        this.idProduit = idProduit;
+    }
 
     public String getReference() {
-        return produitReference;
+        return reference;
     }
-  
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
     public String getPrix() {
-        return produitPrix;
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
     }
 
     public String getDescription() {
-        return produitDescription;
+        return description;
     }
 
-    public boolean getEtat() {
-        return produitEnVente;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public FormFile getImageFile() {
-        return produitImage;
+    public boolean isEnVente() {
+        return enVente;
+    }
+
+    public void setEnVente(boolean etat) {
+        this.enVente = etat;
+    }
+
+    public FormFile getImage() {
+        return image;
+    }
+
+    public void setImage(FormFile image) {
+        this.image = image;
     }
 
 }

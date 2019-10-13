@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.panier.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +31,7 @@ public class ViderPanierAction extends Action {
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
+        System.out.println("@ViderPanierAction");
         // r�cup�ration de la session et le panier dans la session
         final HttpSession session = request.getSession();
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnexionAction.MAP_PANIER_SESSION);

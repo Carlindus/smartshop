@@ -17,6 +17,16 @@
 		<bean:define
 			name="<%=VoirDetailUtilisateurAction.UTILISATEUR_REQUEST%>"
 			id="utilisateur" scope="request" />
+		<logic:messagesPresent message="true">
+			<div class="confirmMessageUser">
+				<html:messages id="aMsg" message="true">
+					<logic:present name="aMsg">
+						<!-- Messages -->
+						<p class="p-2"><bean:write name="aMsg" filter="false" /></p>
+					</logic:present>
+				</html:messages>
+			</div>
+		</logic:messagesPresent>
 		<div class="col">
 			<bean:message key="consulter.id" />
 			<bean:write name="utilisateur" property="idUtilisateur" />
@@ -65,7 +75,7 @@
 			<!-- Afficher bouton modifier -->
 
 			<html:link
-				href="voirModifierUtilisateur.do?idParam=${utilisateur.getIdUtilisateur()}">
+				href="voirModifierUtilisateur.do?idParam=${utilisateur.idUtilisateur}">
 				<button class="viderPanier mt-2">
 					<bean:message key="consulter.modifier" />
 				</button>
@@ -74,7 +84,7 @@
 			<logic:equal name="connectedUser" property="isAdmin" value="false"
 				scope="session">
 				<a href="" data-toggle="modal"
-					data-target="#deleteModal${utilisateur.getIdUtilisateur()} ">
+					data-target="#deleteModal${utilisateur.idUtilisateur} ">
 					<button class="viderPanier mt-2">
 						<bean:message key="consulter.supprimer" />
 					</button>
@@ -85,7 +95,7 @@
 			</html:link>
 			<!-- Modal -->
 			<div class="modal fade"
-				id="deleteModal${utilisateur.getIdUtilisateur()}" tabindex="-1"
+				id="deleteModal${utilisateur.idUtilisateur}" tabindex="-1"
 				role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">

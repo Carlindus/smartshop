@@ -15,6 +15,11 @@
 	<html:form action="/modifierUtilisateur.do" focus="nom">
 		<table border="0" align="center">
 			<tr>
+				<td align="right"><bean:message key="gl.identifier" /> :</td>
+				<td align="left"><html:text property="idUtilisateur" size="25" readonly="true" /></td>
+				<td></td>
+			</tr>
+			<tr>
 				<td align="right"><bean:message key="modifier.nom" /> :</td>
 				<td align="left"><html:text property="nom" size="25" maxlength="25" /></td>
 				<td><ul><html:errors property="nom" prefix="errors.prefix" suffix="errors.suffix" header="" footer=""/></ul></td>
@@ -81,6 +86,6 @@
 	<%-- permet d'afficher toutes les erreurs --%>
 	<html:errors />
 	
-	<html:link href="lister.do"><bean:message key="modifier.retour" /></html:link>
+	<html:link href="listerUtilisateur.do"><bean:message key="modifier.retour" /></html:link>
 </body>
 </html:html>

@@ -1,7 +1,31 @@
 <%@ page import="presentation.produit.action.VoirListeProduitAdminAction"%>
 <%@ include file="../liste-imports.jsp"%>
 <!-- Ian -->
+
 <div id="listeProdAccueilDiv1">
+    <div class="w-100">
+	    <div class="floatright mb-2">
+			<br/>
+			<html:link href="voirCreerProduit.do" >
+				<html:button property="submit">
+					<bean:message key="ajouter.produit.admin" />
+				</html:button>
+			</html:link>
+			<br/>
+		</div>
+	</div>
+	
+<logic:messagesPresent message="true">
+	<div class="confirmMessageUser">
+		<html:messages id="aMsg" message="true">
+			<logic:present name="aMsg">
+				<!-- Messages -->
+				<p class="p-2"><bean:write name="aMsg" filter="false" /></p>
+			</logic:present>
+		</html:messages>
+	</div>
+</logic:messagesPresent>	
+
     <table id="listeProdAccueilTab1" class="table">
         <thead>
             <tr>
@@ -16,31 +40,40 @@
         </thead>
         <tbody id="listeProdAccueilTBody">
 	        <logic:iterate name="<%=VoirListeProduitAdminAction.LISTE_PRODUIT_ADMIN_DTO%>" id="produit" scope="request">
-		        <html:link href="voirDetailProduit.do?id=${produit.idProduit}">
+		        
 		            <tr>
 		                <td scope="row">${produit.idProduit}</td>
-		                <td scope="row"><html:img src="imageServlet?file=${produit.image}" styleId="detailProduitImg"/></td>
+		                <td scope="row">
+		                	<html:link href="voirDetailProduit.do?id=${produit.idProduit}">
+		                		<html:img src="imageServlet?file=${produit.image}" styleId="detailProduitImg"/>
+		                	</html:link>
+		                </td>
 		                <td scope="row">${produit.reference}</td>
 		                <td scope="row">${produit.prix}</td>
 		                <td scope="row">${produit.etat}</td>
-						<td scope="row"><html:link href="voirModifierProduit.do?idParam=${produit.idProduit}">
-						<i class="fas fa-edit"></i></html:link></td>
-						<td scope="row"><html:link href="supprimerProduit.do?idParam=${produit.idProduit}">
-						<i class="fas fa-trash-alt"></i></html:link></td>
+						<td scope="row">
+<%-- 							<html:link href="voirModifierProduit.do?id=${produit.idProduit}">
+								<i class="fas fa-edit"></i>
+							</html:link>
+ --%>						
+ 							<html:link href="voirModifierProduit.do?id=${produit.idProduit}" >
+								<html:button property="submit">
+									<bean:message key="modifier.produit.admin" />
+								</html:button>
+							</html:link>
+						 </td>
+						<td scope="row">
+							<html:link href="supprimerProduit.do?id=${produit.idProduit}">
+								<i class="fas fa-trash-alt"></i>
+							</html:link>
+						</td>
 		            </tr>
 		            <tr>
 		            	<td colspan="7">Description : ${produit.description}</td>
 		            </tr>
-		         </html:link>
+		         
 	         </logic:iterate>
 		</tbody>
 	</table>
-		<br />
-	<div class="floatright mr-5 mb-5">
-	<html:link href="ajouterProduitPanier.do?id=${produit.idProduit}&nb=2" >
-		<html:button property="submit">
-			<bean:message key="ajouter.produit.admin" />
-		</html:button>
-	</html:link>
-	</div>
+	
 </div>

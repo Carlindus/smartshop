@@ -1,8 +1,6 @@
 package service.produit.impl;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import persistance.image.bean.ImageDo;
@@ -18,6 +16,7 @@ public class ProduitMapper {
 
     /**
      * Converti un produitDo en produitDto
+     * 
      * @param produitDo
      * @return produitDto
      */
@@ -27,7 +26,11 @@ public class ProduitMapper {
             produitDto.setDescription(produitDo.getDescription());
             produitDto.setEtat(produitDo.getEtat());
             produitDto.setIdProduit(produitDo.getIdProduit());
-            produitDto.setImage(produitDo.getImage());
+            if (produitDo.getImage() != null) {
+                produitDto.setImage(produitDo.getImage());
+            } else {
+                produitDto.setImage("imageFictive.jpg");
+            }
             produitDto.setPrix(produitDo.getPrix());
             produitDto.setReference(produitDo.getReference());
         }
@@ -36,6 +39,7 @@ public class ProduitMapper {
 
     /**
      * Converti une liste de produitDo en liste de produitDto
+     * 
      * @param listeProduitDo
      * @return listeProduitDto
      */
@@ -53,16 +57,17 @@ public class ProduitMapper {
 
     /**
      * Converti un produitDto en produitDo
+     * 
      * @param produitDto
      * @return produitDo
      */
     public static ProduitDo mapProduitDtoToProduitDo(final ProduitDto produitDto) {
         ProduitDo produitDo = new ProduitDo();
-        if (produitDo != null) {
+        if (produitDto != null) {
             produitDo.setDescription(produitDto.getDescription());
             produitDo.setEtat(produitDto.getEtat());
             produitDo.setIdProduit(produitDto.getIdProduit());
-            produitDo.setImage(produitDto.getImage());
+            // produitDo.setImage(produitDto.getImage());
             produitDo.setPrix(produitDto.getPrix());
             produitDo.setReference(produitDto.getReference());
         }
@@ -71,6 +76,7 @@ public class ProduitMapper {
 
     /**
      * Converti un produitCommandeDo en produitDto
+     * 
      * @param produitCommandeDo
      * @return produitDto
      */
@@ -79,13 +85,13 @@ public class ProduitMapper {
         if (produitCommandeDo != null) {
             produitDto.setDescription(produitCommandeDo.getDescription());
             produitDto.setIdProduit(produitCommandeDo.getIdProduit());
-            produitDto.setImage(produitCommandeDo.getImage());
+            // produitDto.setImage(produitCommandeDo.getImage());
             produitDto.setPrix(produitCommandeDo.getPrix());
             produitDto.setReference(produitCommandeDo.getReference());
         }
         return produitDto;
     }
-    
+
     /**
      * @param produitDto
      * @return
@@ -95,15 +101,13 @@ public class ProduitMapper {
         if (produitDto != null) {
             produitCommandeDo.setDescription(produitDto.getDescription());
             produitCommandeDo.setIdProduit(produitDto.getIdProduit());
-            produitCommandeDo.setImage(produitDto.getImage());
+            // produitCommandeDo.setImage(produitDto.getImage());
             produitCommandeDo.setPrix(produitDto.getPrix());
             produitCommandeDo.setReference(produitDto.getReference());
         }
         return produitCommandeDo;
     }
-    
-    
-    
+
     /**
      * @param produitDto
      * @return

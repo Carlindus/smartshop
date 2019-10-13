@@ -39,7 +39,7 @@
 				<ul><html:errors property="confirmerMotDePasse" prefix="errors.prefix" suffix="errors.suffix" header="" footer=""/></ul>
 				
 				<bean:message key="creer.dateNaissance" />
-				<input type="date">
+				<html:text   property="dateNaissance" />
 				<ul><html:errors property="dateNaissance" prefix="errors.prefix" suffix="errors.suffix" header="" footer=""/></ul>
 			
 				<html:submit property="submit" titleKey="creer.submit"><bean:message key="creer.submit"/></html:submit>

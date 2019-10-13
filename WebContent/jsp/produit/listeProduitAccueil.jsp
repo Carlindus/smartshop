@@ -1,5 +1,6 @@
 <%@ page import="presentation.produit.action.VoirListeProduitAccueilAction"%>
 <%@ include file="../liste-imports.jsp"%>
+
 <!-- Audrey -->
 <div class="listeProdAccueilDiv1">
 	<table id="listeProdAccueilTab1" class="table">

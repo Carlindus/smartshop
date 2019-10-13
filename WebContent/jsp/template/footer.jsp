@@ -20,7 +20,7 @@
 <div class="logo">
 	<html:img src="img/logo.jpg" />
 </div>
-<div class="resSoc flex-col">
+<div class="resSoc">
 		<html:link href="https://twitter.com/">
 			<i class="fab fa-twitter-square"></i>
 		</html:link>

@@ -31,7 +31,7 @@ public class ImageService implements IImageService {
     public byte[] recoverImageData(final String nomImage) {
 
         final IImageDao imageDao = new ImageDao();
-        System.out.println("IMAGE NAME 2 " + nomImage);
+       // System.out.println("IMAGE NAME 2 " + nomImage);
         final byte[] byteImage = imageDao.afficherImageProduit(nomImage);
         return byteImage;
     }

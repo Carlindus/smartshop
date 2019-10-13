@@ -4,6 +4,10 @@ import java.util.Date;
 import java.util.Set;
 
 import persistance.commande.bean.LigneCommandeDo;
+import persistance.utilisateur.bean.UtilisateurDo;
+import persistance.utilisateur.dao.impl.UtilisateurDao;
+import presentation.utilisateur.bean.UtilisateurDto;
+import service.utilisateur.UtilisateurMapper;
 
 /**
  * @author Kevin
@@ -11,13 +15,14 @@ import persistance.commande.bean.LigneCommandeDo;
  */
 public class CommandeDto {
 
-    private int    idCde;
-    private int     idUtilisateur;
-    private String adresseLivraison;
-    private String adresseFacturation;
-    private Date dateCde;
-    private double montantTotal;
-    private double montantRemise;
+    private int                  idCde;
+    private int                  idUtilisateur;
+    private UtilisateurDto       utilisateur;
+    private String               adresseLivraison;
+    private String               adresseFacturation;
+    private Date                 dateCde;
+    private double               montantTotal;
+    private double               montantRemise;
     private Set<LigneCommandeDo> ligneCommandeSet;
 
     /**
@@ -36,7 +41,7 @@ public class CommandeDto {
 
     /**
      * @param idCde
-     *        idCde to set
+     *            idCde to set
      */
     public void setIdCde(final int idCde) {
         this.idCde = idCde;
@@ -51,7 +56,7 @@ public class CommandeDto {
 
     /**
      * @param adresseLivraison
-     *        adresseLivraison to set
+     *            adresseLivraison to set
      */
     public void setAdresseLivraison(final String adresseLivraison) {
         this.adresseLivraison = adresseLivraison;
@@ -66,7 +71,7 @@ public class CommandeDto {
 
     /**
      * @param adresseFacturation
-     *        adresseFacturation to set
+     *            adresseFacturation to set
      */
     public void setAdresseFacturation(final String adresseFacturation) {
         this.adresseFacturation = adresseFacturation;
@@ -81,7 +86,7 @@ public class CommandeDto {
 
     /**
      * @param dateCde
-     *        dateCde to set
+     *            dateCde to set
      */
     public void setDateCde(final Date dateCde) {
         this.dateCde = dateCde;
@@ -96,7 +101,7 @@ public class CommandeDto {
 
     /**
      * @param montantTotal
-     *        montantTotal to set
+     *            montantTotal to set
      */
     public void setMontantTotal(final double montantTotal) {
         this.montantTotal = montantTotal;
@@ -111,7 +116,7 @@ public class CommandeDto {
 
     /**
      * @param montantRemise
-     *        montantRemise to set
+     *            montantRemise to set
      */
     public void setMontantRemise(final double montantRemise) {
         this.montantRemise = montantRemise;
@@ -125,6 +130,17 @@ public class CommandeDto {
         this.idUtilisateur = idUtilisateur;
     }
 
+    public UtilisateurDto getUtilisateur() {
+        UtilisateurDo utilisateurDo = new UtilisateurDo();
+        utilisateurDo = UtilisateurDao.getInstance().findUtilisateur(this.idUtilisateur);
+        UtilisateurDto utilisateur = UtilisateurMapper.mapDoToDto(utilisateurDo);
+        return utilisateur;
+    }
+
+    public void setUtilisateur(UtilisateurDto utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
     public Set<LigneCommandeDo> getLigneCommandeSet() {
         return ligneCommandeSet;
     }
@@ -132,5 +148,11 @@ public class CommandeDto {
     public void setLigneCommandeSet(Set<LigneCommandeDo> ligneCommandeSet) {
         this.ligneCommandeSet = ligneCommandeSet;
     }
-    
+
+    @Override
+    public String toString() {
+        return "CommandeDto [idCde=" + idCde + ", idUtilisateur=" + idUtilisateur + ", dateCde=" + dateCde + ", montantTotal=" + montantTotal + ", montantRemise=" + montantRemise
+                + ", ligneCommandeSet=" + ligneCommandeSet + "]";
+    }
+
 }

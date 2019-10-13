@@ -14,12 +14,13 @@ import persistance.image.dao.IImageDao;
  */
 public class ImageDao implements IImageDao {
 
-    private static IImageDao    instance   = null;
-    private static final String PATH_IMAGE = "D:\\temp\\images_smartshop\\";
-
+    private static IImageDao instance = null;
+    private static final String PATH_IMAGE = "C:/temp/produit/";
+    
     public ImageDao() {
+        
     }
-
+    
     /**
      * @return
      */
@@ -29,14 +30,13 @@ public class ImageDao implements IImageDao {
         }
         return instance;
     }
-
+    
     @Override
     public byte[] afficherImageProduit(String nomImage) {
         final String cheminImage = PATH_IMAGE + nomImage; // On construit le chemin de l'image
-        System.out.println("@ImageDao --- path_image : " + cheminImage);
-        final File file = new File(cheminImage); // On crï¿½er le fichier
-        final byte[] imageBytes = new byte[(int) file.length()]; // On instancie un tableau de bit ï¿½ la longueur du fichier
-        try (final FileInputStream fis = new FileInputStream(file);) { // On esseai de rï¿½cupï¿½rer le fichier
+        final File file = new File(cheminImage); // On créer le fichier
+        final byte[] imageBytes = new byte[(int) file.length()]; // On instancie un tableau de bit à la longueur du fichier
+        try (final FileInputStream fis = new FileInputStream(file);) { // On esseai de récupérer le fichier
             fis.read(imageBytes);
         } catch (final IOException e) {
             e.printStackTrace();
@@ -53,18 +53,19 @@ public class ImageDao implements IImageDao {
             File fileToCreate = new File(PATH_IMAGE + fileName);
             if (!fileToCreate.exists())
                 try {
-                    // @SuppressWarnings("resource")
-                    fileOutStream = new FileOutputStream(fileToCreate);
+                    //@SuppressWarnings("resource")
+                     fileOutStream = new FileOutputStream(fileToCreate);
                     fileOutStream.write(imageDo.getImageData());
                     fileOutStream.flush();
                 } catch (Exception e) {
                     e.printStackTrace();
-                } finally {
-
+                }finally {
+                    
                     fileOutStream.close();
                 }
         }
         return false;
     }
 
+   
 }

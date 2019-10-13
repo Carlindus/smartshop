@@ -9,6 +9,8 @@
 </h1>
 
 <br />
+
+<html:errors/>
 <%-- parcours le panier et affiche son contenu --%>
 <logic:empty name="panier" property="mapProduitDto">
 	<h2>
@@ -92,11 +94,14 @@
 		<bean:write name="val" property="montantAPayer" />
 	</div>
 
-	<div class="viderPanier">
-		<html:link href="valierPanier.do" styleId="viderPanier"><bean:message key="valider.panier" /></html:link>
+	<div>
+		<html:link href="validerPanier.do" styleClass="btn"><bean:message key="valider.panier" /></html:link>
 	</div>
-	<div class="viderPanier">
-		<html:link href="viderPanier.do" styleId="viderPanier"><bean:message key="vider.panier" /></html:link>
+	<div>
+		<html:link href="viderPanier.do" styleClass="btn"><bean:message key="vider.panier" /></html:link>
+	</div>
+	<div>
+		<html:link href="faireUnTruc.do" styleClass="btn">commande</html:link>
 	</div>
 </div>
 </logic:notEmpty>

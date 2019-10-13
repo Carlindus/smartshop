@@ -21,7 +21,8 @@ public class VoirCreerProduitAction extends Action {
 
      @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return mapping.findForward(FORWARD_SUCCESS);
+        System.out.println("-----------into VoirCreerProduitAction--------------");
+         return mapping.findForward(FORWARD_SUCCESS);
     }
 
 }
